@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nick Foard | Innovation Leader</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #1a237e;
+      --accent: #00bcd4;
+      --bg: #f5f7fa;
+      --card: #fff;
+      --text: #222;
+      --muted: #666;
+      --border: #e0e0e0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Roboto', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+    header {
+      background: var(--primary);
+      color: #fff;
+      padding: 2.5rem 1rem 2rem 1rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.5rem;
+      margin: 0 0 0.5rem 0;
+      letter-spacing: 2px;
+    }
+    header h2 {
+      font-size: 1.2rem;
+      font-weight: 400;
+      margin: 0 0 1rem 0;
+      letter-spacing: 3px;
+      color: var(--accent);
+    }
+    .contact {
+      margin: 0.5rem 0 0 0;
+      font-size: 1rem;
+      color: #e0f7fa;
+    }
+    .container {
+      max-width: 1100px;
+      margin: -2rem auto 0 auto;
+      padding: 2rem 1rem 3rem 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+    .main, .sidebar {
+      flex: 1 1 350px;
+      min-width: 320px;
+    }
+    .card {
+      background: var(--card);
+      border-radius: 12px;
+      box-shadow: 0 2px 12px rgba(30,40,90,0.07);
+      padding: 2rem 1.5rem;
+      margin-bottom: 2rem;
+      border: 1px solid var(--border);
+    }
+    .section-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.2rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+      letter-spacing: 1px;
+      border-left: 4px solid var(--accent);
+      padding-left: 0.5rem;
+    }
+    .profile {
+      font-size: 1.1rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .skills-grid, .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 0.7rem 1.2rem;
+      margin-bottom: 1rem;
+    }
+    .skills-grid span, .tools-grid span {
+      background: var(--bg);
+      border-radius: 6px;
+      padding: 0.4rem 0.7rem;
+      font-size: 1rem;
+      color: var(--primary);
+      border: 1px solid var(--border);
+      display: inline-block;
+    }
+    .timeline {
+      border-left: 3px solid var(--accent);
+      margin-left: 0.5rem;
+      padding-left: 1.5rem;
+    }
+    .job {
+      margin-bottom: 2rem;
+      position: relative;
+    }
+    .job:before {
+      content: '';
+      position: absolute;
+      left: -0.7rem;
+      top: 0.6rem;
+      width: 7px;
+      height: 7px;
+      background: var(--accent);
+      border-radius: 50%;
+      border: 2px solid #fff;
+      box-shadow: 0 0 0 2px var(--accent);
+    }
+    .job-title {
+      font-weight: 700;
+      color: var(--primary);
+      font-size: 1.1rem;
+    }
+    .job-company {
+      color: var(--muted);
+      font-size: 1rem;
+      margin-bottom: 0.2rem;
+    }
+    .job-dates {
+      font-size: 0.95rem;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    .job-desc {
+      font-size: 1rem;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+    .edu-list, .cert-list, .affil-list, .hobby-list, .video-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .edu-list li, .cert-list li, .affil-list li, .hobby-list li, .video-list li {
+      margin-bottom: 0.7rem;
+      font-size: 1rem;
+      color: var(--text);
+    }
+    .edu-degree {
+      font-weight: 500;
+      color: var(--primary);
+    }
+    .edu-school {
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    @media (max-width: 900px) {
+      .container { flex-direction: column; gap: 0; }
+      .main, .sidebar { min-width: 0; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Nick Foard</h1>
+    <h2>Innovational Leader</h2>
+    <div class="contact">
+      <span>📞 +64 (0)21 108 4894</span> &nbsp;|&nbsp;
+      <span>📧 <a href="mailto:nickfoard13@gmail.com">nickfoard13@gmail.com</a></span> &nbsp;|&nbsp;
+      <span>📍 3/1043 Great North Road, Point Chevalier, Auckland</span>
+      <br>
+      <span>🔗 <a href="#">LinkedIn</a> | <a href="#">Seek Profile</a></span>
+    </div>
+  </header>
+  <div class="container">
+    <div class="main">
+      <div class="card">
+        <div class="section-title">Profile</div>
+        <div class="profile">
+          Innovative and results-driven IT Leader with over 30 years of experience in driving technology strategies, digital transformations, and business process improvements across diverse industries. Proven track record of leading large-scale projects, managing multimillion-dollar budgets, and fostering a culture of innovation and agility. Adept at aligning IT initiatives with business goals to deliver value, improve operational efficiency, and enhance customer experiences.
+        </div>
+      </div>
+      <div class="card">
+        <div class="section-title">Experience</div>
+        <div class="timeline">
+          <div class="job">
+            <div class="job-title">Head of IT</div>
+            <div class="job-company">Abodo Wood Ltd</div>
+            <div class="job-dates">Oct 2024 – Present</div>
+            <div class="job-desc">
+              Led the modernisation of IT infrastructure, operations and governance across a global manufacturing and export business. Developed and commenced implementation of the company’s first formal IT Strategy. Successfully migrated all of Abodo’s on-premises enterprise software to the cloud, alongside a full network upgrade with segmented VLANs and gigabit fibre, significantly reducing cybersecurity risk. Rolled out MFA, formal IT Policies and ITIL-aligned Change Management. Introduced Azure DevOps for work management, code repositories and CI/CD. Implemented AI CoPilot agents to automate HR and Product Support tasks. Established IT Asset Management, Knowledge management and Incident management inline with ITIL standards. Created the first IT Chart of Accounts to gain visibility of total cost of ownership and inform strategic planning.
+            </div>
+          </div>
+          <div class="job">
+            <div class="job-title">Digital Engagement Product Leader</div>
+            <div class="job-company">SkyCity Entertainment Company</div>
+            <div class="job-dates">Sept 2023 – Oct 2024</div>
+            <div class="job-desc">
+              Spearheaded a strategic program to comply with new gaming regulations, introducing Automation and AI for enhanced fraud prevention. Managed a $4M budget, leading multiple product teams to evaluate and implement new digital enablement capabilities. Designed engaging customer journeys, built user story maps, and managed a backlog of over 400 user stories. Program delivered on time and within budget, aligning with regulatory compliance and improved operational efficiency.
+            </div>
+          </div>
+          <div class="job">
+            <div class="job-title">Head of Ways of Working</div>
+            <div class="job-company">SkyCity Entertainment Company</div>
+            <div class="job-dates">July 2020 – Sept 2023</div>
+            <div class="job-desc">
+              Developed a new practice and team of multi discipline Coaches providing Agile PMO services and performance coaching. Introduced Agile Product Development methodologies. Improved project delivery and business agility by 40% through the ICT SkyCity Agile Operating Model. Managed projects with a total budget of $5M, including website redevelopment, mobile app development, and CMS consolidation. Delivered coaching and training in Agile and Lean methodologies. Ensured team alignment with the ICT delivery operating model, optimizing value and outcomes across a $25M annual portfolio.
+            </div>
+          </div>
+          <div class="job">
+            <div class="job-title">Delivery Practice Leader</div>
+            <div class="job-company">SkyCity Entertainment Company</div>
+            <div class="job-dates">Oct 2017 – July 2020</div>
+            <div class="job-desc">
+              Established a new Project Management practice, introducing a PMI-aligned framework, tools, and processes. Managed a $75M portfolio, providing transparency on progress, spend, and risk to senior leadership. Enhanced project delivery consistency, quality, and safety across all domains.
+            </div>
+          </div>
+          <div class="job">
+            <div class="job-title">Consulting Manager</div>
+            <div class="job-company">Assurity Consulting Ltd</div>
+            <div class="job-dates">May 2017 – Oct 2017</div>
+            <div class="job-desc">
+              Led branch operations and market growth, delivering high-quality Agile and Analysis solutions. Achieved financial and growth targets, led sales processes, and identified new client opportunities. Mentored and developed Assurity staff, ensuring high capability and client satisfaction.
+            </div>
+          </div>
+          <div class="job">
+            <div class="job-title">Enterprise Business Analyst / Agile Coach</div>
+            <div class="job-company">Westpac NZ</div>
+            <div class="job-dates">July 2016 – May 2017</div>
+            <div class="job-desc">
+              Provided Enterprise Analysis and Product Discovery support, shaping initiatives using lean start-up and design thinking approaches. Coached and trained teams in Agile/DevOps methodologies, delivering customer-focused outcomes.
+            </div>
+          </div>
+          <div class="job">
+            <div class="job-title">Principal Consultant / Agile & Business Analysis</div>
+            <div class="job-company">Equinox IT</div>
+            <div class="job-dates">April 2014 – July 2016</div>
+            <div class="job-desc">
+              Provided advisory, assessment, mentoring, and training services across public and private sectors. Delivered over 21 successful client engagements, enhancing project excellence and outcomes.
+            </div>
+          </div>
+          <div class="job">
+            <div class="job-title">Business Owner Operator</div>
+            <div class="job-company">Ultimate Boards</div>
+            <div class="job-dates">Feb 2010 – April 2014</div>
+            <div class="job-desc">
+              Founded and managed a lean start-up online importer/retail business in the Action Sport domain. Designed and implemented a cloud-based solution architecture, handling all operational aspects of the business.
+            </div>
+          </div>
+          <div class="job">
+            <div class="job-title">Senior Business Analyst / Scrum Master</div>
+            <div class="job-company">Chelmer Ltd</div>
+            <div class="job-dates">Aug 2009 – April 2014</div>
+            <div class="job-desc">
+              Managed software delivery projects, provided Agile and Scrum coaching, and transformed internal processes. Led software delivery projects, implemented business analysis frameworks, and mentored junior staff.
+            </div>
+          </div>
+          <div class="job">
+            <div class="job-title">Lead Business Analyst</div>
+            <div class="job-company">Foster Moore</div>
+            <div class="job-dates">June 2007 – Aug 2009</div>
+            <div class="job-desc">
+              Led a team of business analysts, facilitated requirements workshops, and delivered high-level solution designs for multiple Government agencies.
+            </div>
+          </div>
+          <div class="job">
+            <div class="job-title">Business Analyst Manager - Cards</div>
+            <div class="job-company">Westpac NZ</div>
+            <div class="job-dates">March 2006 – June 2007</div>
+            <div class="job-desc">
+              Ensured IT and solution delivery objectives were met, provided leadership and mentoring, and introduced a requirements framework.
+            </div>
+          </div>
+          <div class="job">
+            <div class="job-title">Principal Consultant</div>
+            <div class="job-company">Business Agility Ltd</div>
+            <div class="job-dates">March 2002 – Jan 2006</div>
+            <div class="job-desc">
+              Specialized in Implementation of E-business and CRM, improving client sales and retention strategies through process re-design and automation across the UK in many different business domains.
+            </div>
+          </div>
+          <div class="job">
+            <div class="job-title">Business Analysis Manager</div>
+            <div class="job-company">Criterion Assurance Ltd</div>
+            <div class="job-dates">Feb 1998 – March 2002</div>
+            <div class="job-desc">
+              Led a team of business analysts and developers, delivering strategic E-business, automation and transformational solutions, managing software development projects and providing strategic planning for an assurance business wanting to radically modernise.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="sidebar">
+      <div class="card">
+        <div class="section-title">Skills</div>
+        <div class="skills-grid">
+          <span>Technology Strategy & Vision</span>
+          <span>Digital Transformation</span>
+          <span>Automation & AI</span>
+          <span>IT Governance & Compliance</span>
+          <span>Business & Solution Architecture</span>
+          <span>IT Operations Management</span>
+          <span>Software Delivery Management</span>
+          <span>Python/Bash/PowerShell scripting</span>
+          <span>Change Management</span>
+          <span>Data-Driven Decision Making</span>
+          <span>Agile & Lean Methodology Coaching</span>
+          <span>Business Analysis</span>
+          <span>MS 365 Administration</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="section-title">Tools</div>
+        <div class="tools-grid">
+          <span>MS Visio</span>
+          <span>MS Office</span>
+          <span>MS Project</span>
+          <span>PowerAutomate</span>
+          <span>PowerBI</span>
+          <span>ChatGPT</span>
+          <span>Claude</span>
+          <span>Gemini</span>
+          <span>MS Teams</span>
+          <span>SharePoint</span>
+          <span>Aha!</span>
+          <span>Jira</span>
+          <span>Notion</span>
+          <span>Confluence</span>
+          <span>Proto.io</span>
+          <span>Miro</span>
+          <span>Azure DevOps</span>
+          <span>iServer</span>
+          <span>Sparx EA</span>
+          <span>Azure and AWS Cloud</span>
+          <span>Bizagi</span>
+          <span>Github</span>
+          <span>ArchiMate</span>
+          <span>UML</span>
+          <span>BPMN</span>
+          <span>TOGAF</span>
+          <span>PMI</span>
+          <span>Prince 2</span>
+          <span>RUP</span>
+          <span>Copilot Studio</span>
+          <span>MS 365 Admin</span>
+          <span>n8n</span>
+          <span>VS Code</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="section-title">Education</div>
+        <ul class="edu-list">
+          <li><span class="edu-degree">BTEC - Business & Finance</span> <span class="edu-school">West Kent College, 1991 - 1992</span></li>
+          <li><span class="edu-degree">Secondary School</span> <span class="edu-school">Tunbridge Wells Grammar School for Boys, 1985 - 1991</span></li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="section-title">Certifications</div>
+        <ul class="cert-list">
+          <li>ICAgile Fundamentals of Agile - IC Agile</li>
+          <li>Applied Enterprise Analysis – Equinox IT</li>
+          <li>Certified Product Owner - Scrum Alliance</li>
+          <li>Certified Scrum Master - Scrum Alliance</li>
+          <li>Mastering the Requirements Process - Atlantic Systems Guild</li>
+          <li>Web Application Design for the Disabled – The Usability Company</li>
+          <li>Object Oriented Analysis and Systems Design - Merit International</li>
+          <li>Business Systems Analysis - Assist Knowledge Development</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="section-title">Affiliations</div>
+        <ul class="affil-list">
+          <li>International Institute of Business Analysis - NZ Chapter</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="section-title">Hobbies</div>
+        <ul class="hobby-list">
+          <li>Writing music and performing with my band</li>
+          <li>Bushwalking with family & exploring new places</li>
+          <li>Keeping up to date with emerging technologies</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="section-title">Video Links</div>
+        <ul class="video-list">
+          <li><a href="#">Understanding Agile Teams Using Data and Systems Thinking</a></li>
+          <li><a href="#">Increasing Analytical Thinking in Agile Teams</a></li>
+          <li><a href="#">From Waterfall to Kanban to Scrum</a></li>
+          <li><a href="#">Lessons from 2022</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
