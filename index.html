@@ -4,400 +4,827 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nick Foard | Innovation Leader</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary: #1a237e;
-      --accent: #00bcd4;
-      --bg: #f5f7fa;
-      --card: #fff;
-      --text: #222;
-      --muted: #666;
-      --border: #e0e0e0;
+      --primary: #6366f1;
+      --primary-dark: #4f46e5;
+      --accent: #06b6d4;
+      --accent-light: #22d3ee;
+      --bg: #0f172a;
+      --bg-secondary: #1e293b;
+      --card: #1e293b;
+      --card-hover: #334155;
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+      --border: #334155;
+      --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
     }
-    * { box-sizing: border-box; }
-    body {
+
+    * {
+      box-sizing: border-box;
       margin: 0;
-      font-family: 'Roboto', Arial, sans-serif;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       background: var(--bg);
       color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
     }
-    header {
-      background: var(--primary);
-      color: #fff;
-      padding: 2.5rem 1rem 2rem 1rem;
+
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg);
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(circle at 20% 50%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(6, 182, 212, 0.15) 0%, transparent 50%);
+      animation: pulse 8s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.8; }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
       text-align: center;
+      padding: 2rem;
+      max-width: 900px;
+      animation: fadeInUp 1s ease-out;
     }
-    header h1 {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 2.5rem;
-      margin: 0 0 0.5rem 0;
-      letter-spacing: 2px;
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
-    header h2 {
-      font-size: 1.2rem;
-      font-weight: 400;
-      margin: 0 0 1rem 0;
-      letter-spacing: 3px;
-      color: var(--accent);
+
+    .hero-title {
+      font-size: clamp(3rem, 8vw, 6rem);
+      font-weight: 800;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 1rem;
+      letter-spacing: -2px;
+      animation: fadeInUp 1s ease-out 0.2s both;
     }
-    .contact {
-      margin: 0.5rem 0 0 0;
-      font-size: 1rem;
-      color: #e0f7fa;
+
+    .hero-subtitle {
+      font-size: clamp(1.2rem, 3vw, 2rem);
+      color: var(--accent-light);
+      font-weight: 300;
+      margin-bottom: 2rem;
+      animation: fadeInUp 1s ease-out 0.4s both;
     }
-    .container {
-      max-width: 1100px;
-      margin: -2rem auto 0 auto;
-      padding: 2rem 1rem 3rem 1rem;
+
+    .hero-description {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 700px;
+      margin: 0 auto 2rem;
+      animation: fadeInUp 1s ease-out 0.6s both;
+    }
+
+    .contact-links {
       display: flex;
       flex-wrap: wrap;
-      gap: 2rem;
+      gap: 1.5rem;
+      justify-content: center;
+      margin-bottom: 3rem;
+      animation: fadeInUp 1s ease-out 0.8s both;
     }
-    .main, .sidebar {
-      flex: 1 1 350px;
-      min-width: 320px;
+
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-size: 0.95rem;
     }
-    .card {
-      background: var(--card);
-      border-radius: 12px;
-      box-shadow: 0 2px 12px rgba(30,40,90,0.07);
-      padding: 2rem 1.5rem;
-      margin-bottom: 2rem;
-      border: 1px solid var(--border);
+
+    .contact-link:hover {
+      color: var(--accent-light);
+      transform: translateY(-2px);
     }
+
+    .scroll-indicator {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+      40% { transform: translateX(-50%) translateY(-10px); }
+      60% { transform: translateX(-50%) translateY(-5px); }
+    }
+
+    .scroll-indicator svg {
+      width: 30px;
+      height: 30px;
+      stroke: var(--accent);
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+    }
+
+    .section {
+      margin-bottom: 6rem;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease;
+    }
+
+    .section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
     .section-title {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1.2rem;
-      color: var(--primary);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
       margin-bottom: 1rem;
-      letter-spacing: 1px;
-      border-left: 4px solid var(--accent);
-      padding-left: 0.5rem;
-    }
-    .profile {
-      font-size: 1.1rem;
-      color: var(--muted);
-      margin-bottom: 1rem;
-    }
-    .skills-grid, .tools-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 0.7rem 1.2rem;
-      margin-bottom: 1rem;
-    }
-    .skills-grid span, .tools-grid span {
-      background: var(--bg);
-      border-radius: 6px;
-      padding: 0.4rem 0.7rem;
-      font-size: 1rem;
-      color: var(--primary);
-      border: 1px solid var(--border);
+      position: relative;
       display: inline-block;
     }
-    .timeline {
-      border-left: 3px solid var(--accent);
-      margin-left: 0.5rem;
-      padding-left: 1.5rem;
-    }
-    .job {
-      margin-bottom: 2rem;
-      position: relative;
-    }
-    .job:before {
+
+    .section-title::after {
       content: '';
       position: absolute;
-      left: -0.7rem;
-      top: 0.6rem;
-      width: 7px;
-      height: 7px;
-      background: var(--accent);
-      border-radius: 50%;
-      border: 2px solid #fff;
-      box-shadow: 0 0 0 2px var(--accent);
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 4px;
+      background: var(--gradient-3);
+      border-radius: 2px;
     }
-    .job-title {
-      font-weight: 700;
-      color: var(--primary);
+
+    .section-subtitle {
+      color: var(--text-muted);
       font-size: 1.1rem;
     }
+
+    .grid {
+      display: grid;
+      gap: 2rem;
+    }
+
+    .grid-2 {
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 20px;
+      padding: 2rem;
+      border: 1px solid var(--border);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, transparent 100%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      border-color: var(--primary);
+      box-shadow: 0 20px 40px rgba(99, 102, 241, 0.2);
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    .timeline {
+      position: relative;
+      padding-left: 2rem;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(180deg, var(--primary) 0%, var(--accent) 100%);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 3rem;
+      padding-left: 2rem;
+      animation: slideInLeft 0.6s ease-out;
+    }
+
+    @keyframes slideInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -2.5rem;
+      top: 0.5rem;
+      width: 12px;
+      height: 12px;
+      background: var(--primary);
+      border-radius: 50%;
+      border: 3px solid var(--bg);
+      box-shadow: 0 0 0 3px var(--primary);
+      transition: all 0.3s ease;
+    }
+
+    .timeline-item:hover::before {
+      transform: scale(1.3);
+      box-shadow: 0 0 0 6px rgba(99, 102, 241, 0.3);
+    }
+
+    .job-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+
     .job-company {
-      color: var(--muted);
-      font-size: 1rem;
-      margin-bottom: 0.2rem;
+      font-size: 1.1rem;
+      color: var(--accent-light);
+      margin-bottom: 0.3rem;
     }
+
     .job-dates {
-      font-size: 0.95rem;
-      color: var(--accent);
-      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      background: rgba(99, 102, 241, 0.1);
+      border-radius: 20px;
     }
+
     .job-desc {
-      font-size: 1rem;
-      color: var(--text);
-      margin-bottom: 0.5rem;
+      color: var(--text-muted);
+      line-height: 1.7;
     }
-    .edu-list, .cert-list, .affil-list, .hobby-list, .video-list {
+
+    .skills-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .skill-tag {
+      padding: 0.75rem 1.5rem;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      font-size: 0.95rem;
+      color: var(--text);
+      transition: all 0.3s ease;
+      cursor: default;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .skill-tag::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: var(--gradient);
+      transition: left 0.4s ease;
+      z-index: -1;
+    }
+
+    .skill-tag:hover {
+      border-color: var(--primary);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
+    }
+
+    .skill-tag:hover::before {
+      left: 0;
+    }
+
+    .info-card {
+      background: var(--card);
+      border-radius: 20px;
+      padding: 2rem;
+      border: 1px solid var(--border);
+      transition: all 0.3s ease;
+    }
+
+    .info-card:hover {
+      border-color: var(--primary);
+      transform: translateY(-5px);
+    }
+
+    .info-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .info-title::before {
+      content: '';
+      width: 4px;
+      height: 24px;
+      background: var(--gradient-3);
+      border-radius: 2px;
+    }
+
+    .info-list {
       list-style: none;
-      padding: 0;
-      margin: 0;
     }
-    .edu-list li, .cert-list li, .affil-list li, .hobby-list li, .video-list li {
-      margin-bottom: 0.7rem;
-      font-size: 1rem;
+
+    .info-list li {
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-muted);
+      transition: all 0.3s ease;
+    }
+
+    .info-list li:last-child {
+      border-bottom: none;
+    }
+
+    .info-list li:hover {
+      color: var(--accent-light);
+      padding-left: 0.5rem;
+    }
+
+    .video-link {
+      display: block;
+      padding: 1rem;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
       color: var(--text);
-    }
-    .edu-degree {
-      font-weight: 500;
-      color: var(--primary);
-    }
-    .edu-school {
-      color: var(--muted);
-      font-size: 0.98rem;
-    }
-    a {
-      color: var(--accent);
       text-decoration: none;
+      transition: all 0.3s ease;
+      margin-bottom: 1rem;
     }
-    a:hover {
-      text-decoration: underline;
+
+    .video-link:hover {
+      background: var(--card-hover);
+      border-color: var(--accent);
+      transform: translateX(10px);
+      box-shadow: 0 5px 15px rgba(6, 182, 212, 0.2);
     }
-    @media (max-width: 900px) {
-      .container { flex-direction: column; gap: 0; }
-      .main, .sidebar { min-width: 0; }
+
+    .cta-section {
+      text-align: center;
+      padding: 4rem 2rem;
+      background: var(--card);
+      border-radius: 30px;
+      border: 1px solid var(--border);
+      margin: 4rem 0;
+    }
+
+    .cta-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .cta-text {
+      color: var(--text-muted);
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 1rem 2.5rem;
+      background: var(--gradient);
+      color: white;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+      font-size: 1.1rem;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 30px rgba(99, 102, 241, 0.4);
+    }
+
+    footer {
+      text-align: center;
+      padding: 3rem 2rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 3rem;
+      }
+      
+      .contact-links {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .timeline {
+        padding-left: 1rem;
+      }
+      
+      .timeline-item {
+        padding-left: 1.5rem;
+      }
+    }
+
+    .fade-in {
+      animation: fadeIn 1s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Nick Foard</h1>
-    <h2>Innovational Leader</h2>
-    <div class="contact">
-      <span>📞 +64 (0)21 108 4894</span> &nbsp;|&nbsp;
-      <span>📧 <a href="mailto:nickfoard13@gmail.com">nickfoard13@gmail.com</a></span> &nbsp;|&nbsp;
-      <span>📍 3/1043 Great North Road, Point Chevalier, Auckland</span>
-      <br>
-      <span>🔗 <a href="#">LinkedIn</a> | <a href="#">Seek Profile</a></span>
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <h1 class="hero-title">Nick Foard</h1>
+      <h2 class="hero-subtitle">Innovation Leader</h2>
+      <p class="hero-description">
+        Innovative and results-driven IT Leader with over 30 years of experience in driving technology strategies, digital transformations, and business process improvements across diverse industries.
+      </p>
+      <div class="contact-links">
+        <a href="tel:+64021108489" class="contact-link">
+          <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+          </svg>
+          +64 (0)21 108 4894
+        </a>
+        <a href="mailto:nickfoard13@gmail.com" class="contact-link">
+          <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+          </svg>
+          nickfoard13@gmail.com
+        </a>
+        <span class="contact-link">
+          <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+          </svg>
+          Auckland, New Zealand
+        </span>
+      </div>
     </div>
-  </header>
+    <div class="scroll-indicator">
+      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+      </svg>
+    </div>
+  </section>
+
   <div class="container">
-    <div class="main">
-      <div class="card">
-        <div class="section-title">Profile</div>
-        <div class="profile">
-          Innovative and results-driven IT Leader with over 30 years of experience in driving technology strategies, digital transformations, and business process improvements across diverse industries. Proven track record of leading large-scale projects, managing multimillion-dollar budgets, and fostering a culture of innovation and agility. Adept at aligning IT initiatives with business goals to deliver value, improve operational efficiency, and enhance customer experiences.
+    <section class="section" id="experience">
+      <div class="section-header">
+        <h2 class="section-title">Experience</h2>
+        <p class="section-subtitle">30+ years of driving innovation and transformation</p>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <h3 class="job-title">Head of IT</h3>
+          <div class="job-company">Abodo Wood Ltd</div>
+          <span class="job-dates">Oct 2024 – Present</span>
+          <p class="job-desc">
+            Led the modernisation of IT infrastructure, operations and governance across a global manufacturing and export business. Developed and commenced implementation of the company's first formal IT Strategy. Successfully migrated all of Abodo's on-premises enterprise software to the cloud, alongside a full network upgrade with segmented VLANs and gigabit fibre, significantly reducing cybersecurity risk. Rolled out MFA, formal IT Policies and ITIL-aligned Change Management. Introduced Azure DevOps for work management, code repositories and CI/CD. Implemented AI CoPilot agents to automate HR and Product Support tasks. Established IT Asset Management, Knowledge management and Incident management inline with ITIL standards. Created the first IT Chart of Accounts to gain visibility of total cost of ownership and inform strategic planning.
+          </p>
+        </div>
+
+        <div class="timeline-item">
+          <h3 class="job-title">Digital Engagement Product Leader</h3>
+          <div class="job-company">SkyCity Entertainment Company</div>
+          <span class="job-dates">Sept 2023 – Oct 2024</span>
+          <p class="job-desc">
+            Spearheaded a strategic program to comply with new gaming regulations, introducing Automation and AI for enhanced fraud prevention. Managed a $4M budget, leading multiple product teams to evaluate and implement new digital enablement capabilities. Designed engaging customer journeys, built user story maps, and managed a backlog of over 400 user stories. Program delivered on time and within budget, aligning with regulatory compliance and improved operational efficiency.
+          </p>
+        </div>
+
+        <div class="timeline-item">
+          <h3 class="job-title">Head of Ways of Working</h3>
+          <div class="job-company">SkyCity Entertainment Company</div>
+          <span class="job-dates">July 2020 – Sept 2023</span>
+          <p class="job-desc">
+            Developed a new practice and team of multi discipline Coaches providing Agile PMO services and performance coaching. Introduced Agile Product Development methodologies. Improved project delivery and business agility by 40% through the ICT SkyCity Agile Operating Model. Managed projects with a total budget of $5M, including website redevelopment, mobile app development, and CMS consolidation. Delivered coaching and training in Agile and Lean methodologies. Ensured team alignment with the ICT delivery operating model, optimizing value and outcomes across a $25M annual portfolio.
+          </p>
+        </div>
+
+        <div class="timeline-item">
+          <h3 class="job-title">Delivery Practice Leader</h3>
+          <div class="job-company">SkyCity Entertainment Company</div>
+          <span class="job-dates">Oct 2017 – July 2020</span>
+          <p class="job-desc">
+            Established a new Project Management practice, introducing a PMI-aligned framework, tools, and processes. Managed a $75M portfolio, providing transparency on progress, spend, and risk to senior leadership. Enhanced project delivery consistency, quality, and safety across all domains.
+          </p>
+        </div>
+
+        <div class="timeline-item">
+          <h3 class="job-title">Consulting Manager</h3>
+          <div class="job-company">Assurity Consulting Ltd</div>
+          <span class="job-dates">May 2017 – Oct 2017</span>
+          <p class="job-desc">
+            Led branch operations and market growth, delivering high-quality Agile and Analysis solutions. Achieved financial and growth targets, led sales processes, and identified new client opportunities. Mentored and developed Assurity staff, ensuring high capability and client satisfaction.
+          </p>
+        </div>
+
+        <div class="timeline-item">
+          <h3 class="job-title">Enterprise Business Analyst / Agile Coach</h3>
+          <div class="job-company">Westpac NZ</div>
+          <span class="job-dates">July 2016 – May 2017</span>
+          <p class="job-desc">
+            Provided Enterprise Analysis and Product Discovery support, shaping initiatives using lean start-up and design thinking approaches. Coached and trained teams in Agile/DevOps methodologies, delivering customer-focused outcomes.
+          </p>
+        </div>
+
+        <div class="timeline-item">
+          <h3 class="job-title">Principal Consultant / Agile & Business Analysis</h3>
+          <div class="job-company">Equinox IT</div>
+          <span class="job-dates">April 2014 – July 2016</span>
+          <p class="job-desc">
+            Provided advisory, assessment, mentoring, and training services across public and private sectors. Delivered over 21 successful client engagements, enhancing project excellence and outcomes.
+          </p>
+        </div>
+
+        <div class="timeline-item">
+          <h3 class="job-title">Business Owner Operator</h3>
+          <div class="job-company">Ultimate Boards</div>
+          <span class="job-dates">Feb 2010 – April 2014</span>
+          <p class="job-desc">
+            Founded and managed a lean start-up online importer/retail business in the Action Sport domain. Designed and implemented a cloud-based solution architecture, handling all operational aspects of the business.
+          </p>
+        </div>
+
+        <div class="timeline-item">
+          <h3 class="job-title">Senior Business Analyst / Scrum Master</h3>
+          <div class="job-company">Chelmer Ltd</div>
+          <span class="job-dates">Aug 2009 – April 2014</span>
+          <p class="job-desc">
+            Managed software delivery projects, provided Agile and Scrum coaching, and transformed internal processes. Led software delivery projects, implemented business analysis frameworks, and mentored junior staff.
+          </p>
+        </div>
+
+        <div class="timeline-item">
+          <h3 class="job-title">Lead Business Analyst</h3>
+          <div class="job-company">Foster Moore</div>
+          <span class="job-dates">June 2007 – Aug 2009</span>
+          <p class="job-desc">
+            Led a team of business analysts, facilitated requirements workshops, and delivered high-level solution designs for multiple Government agencies.
+          </p>
+        </div>
+
+        <div class="timeline-item">
+          <h3 class="job-title">Business Analyst Manager - Cards</h3>
+          <div class="job-company">Westpac NZ</div>
+          <span class="job-dates">March 2006 – June 2007</span>
+          <p class="job-desc">
+            Ensured IT and solution delivery objectives were met, provided leadership and mentoring, and introduced a requirements framework.
+          </p>
+        </div>
+
+        <div class="timeline-item">
+          <h3 class="job-title">Principal Consultant</h3>
+          <div class="job-company">Business Agility Ltd</div>
+          <span class="job-dates">March 2002 – Jan 2006</span>
+          <p class="job-desc">
+            Specialized in Implementation of E-business and CRM, improving client sales and retention strategies through process re-design and automation across the UK in many different business domains.
+          </p>
+        </div>
+
+        <div class="timeline-item">
+          <h3 class="job-title">Business Analysis Manager</h3>
+          <div class="job-company">Criterion Assurance Ltd</div>
+          <span class="job-dates">Feb 1998 – March 2002</span>
+          <p class="job-desc">
+            Led a team of business analysts and developers, delivering strategic E-business, automation and transformational solutions, managing software development projects and providing strategic planning for an assurance business wanting to radically modernise.
+          </p>
         </div>
       </div>
-      <div class="card">
-        <div class="section-title">Experience</div>
-        <div class="timeline">
-          <div class="job">
-            <div class="job-title">Head of IT</div>
-            <div class="job-company">Abodo Wood Ltd</div>
-            <div class="job-dates">Oct 2024 – Present</div>
-            <div class="job-desc">
-              Led the modernisation of IT infrastructure, operations and governance across a global manufacturing and export business. Developed and commenced implementation of the company’s first formal IT Strategy. Successfully migrated all of Abodo’s on-premises enterprise software to the cloud, alongside a full network upgrade with segmented VLANs and gigabit fibre, significantly reducing cybersecurity risk. Rolled out MFA, formal IT Policies and ITIL-aligned Change Management. Introduced Azure DevOps for work management, code repositories and CI/CD. Implemented AI CoPilot agents to automate HR and Product Support tasks. Established IT Asset Management, Knowledge management and Incident management inline with ITIL standards. Created the first IT Chart of Accounts to gain visibility of total cost of ownership and inform strategic planning.
-            </div>
-          </div>
-          <div class="job">
-            <div class="job-title">Digital Engagement Product Leader</div>
-            <div class="job-company">SkyCity Entertainment Company</div>
-            <div class="job-dates">Sept 2023 – Oct 2024</div>
-            <div class="job-desc">
-              Spearheaded a strategic program to comply with new gaming regulations, introducing Automation and AI for enhanced fraud prevention. Managed a $4M budget, leading multiple product teams to evaluate and implement new digital enablement capabilities. Designed engaging customer journeys, built user story maps, and managed a backlog of over 400 user stories. Program delivered on time and within budget, aligning with regulatory compliance and improved operational efficiency.
-            </div>
-          </div>
-          <div class="job">
-            <div class="job-title">Head of Ways of Working</div>
-            <div class="job-company">SkyCity Entertainment Company</div>
-            <div class="job-dates">July 2020 – Sept 2023</div>
-            <div class="job-desc">
-              Developed a new practice and team of multi discipline Coaches providing Agile PMO services and performance coaching. Introduced Agile Product Development methodologies. Improved project delivery and business agility by 40% through the ICT SkyCity Agile Operating Model. Managed projects with a total budget of $5M, including website redevelopment, mobile app development, and CMS consolidation. Delivered coaching and training in Agile and Lean methodologies. Ensured team alignment with the ICT delivery operating model, optimizing value and outcomes across a $25M annual portfolio.
-            </div>
-          </div>
-          <div class="job">
-            <div class="job-title">Delivery Practice Leader</div>
-            <div class="job-company">SkyCity Entertainment Company</div>
-            <div class="job-dates">Oct 2017 – July 2020</div>
-            <div class="job-desc">
-              Established a new Project Management practice, introducing a PMI-aligned framework, tools, and processes. Managed a $75M portfolio, providing transparency on progress, spend, and risk to senior leadership. Enhanced project delivery consistency, quality, and safety across all domains.
-            </div>
-          </div>
-          <div class="job">
-            <div class="job-title">Consulting Manager</div>
-            <div class="job-company">Assurity Consulting Ltd</div>
-            <div class="job-dates">May 2017 – Oct 2017</div>
-            <div class="job-desc">
-              Led branch operations and market growth, delivering high-quality Agile and Analysis solutions. Achieved financial and growth targets, led sales processes, and identified new client opportunities. Mentored and developed Assurity staff, ensuring high capability and client satisfaction.
-            </div>
-          </div>
-          <div class="job">
-            <div class="job-title">Enterprise Business Analyst / Agile Coach</div>
-            <div class="job-company">Westpac NZ</div>
-            <div class="job-dates">July 2016 – May 2017</div>
-            <div class="job-desc">
-              Provided Enterprise Analysis and Product Discovery support, shaping initiatives using lean start-up and design thinking approaches. Coached and trained teams in Agile/DevOps methodologies, delivering customer-focused outcomes.
-            </div>
-          </div>
-          <div class="job">
-            <div class="job-title">Principal Consultant / Agile & Business Analysis</div>
-            <div class="job-company">Equinox IT</div>
-            <div class="job-dates">April 2014 – July 2016</div>
-            <div class="job-desc">
-              Provided advisory, assessment, mentoring, and training services across public and private sectors. Delivered over 21 successful client engagements, enhancing project excellence and outcomes.
-            </div>
-          </div>
-          <div class="job">
-            <div class="job-title">Business Owner Operator</div>
-            <div class="job-company">Ultimate Boards</div>
-            <div class="job-dates">Feb 2010 – April 2014</div>
-            <div class="job-desc">
-              Founded and managed a lean start-up online importer/retail business in the Action Sport domain. Designed and implemented a cloud-based solution architecture, handling all operational aspects of the business.
-            </div>
-          </div>
-          <div class="job">
-            <div class="job-title">Senior Business Analyst / Scrum Master</div>
-            <div class="job-company">Chelmer Ltd</div>
-            <div class="job-dates">Aug 2009 – April 2014</div>
-            <div class="job-desc">
-              Managed software delivery projects, provided Agile and Scrum coaching, and transformed internal processes. Led software delivery projects, implemented business analysis frameworks, and mentored junior staff.
-            </div>
-          </div>
-          <div class="job">
-            <div class="job-title">Lead Business Analyst</div>
-            <div class="job-company">Foster Moore</div>
-            <div class="job-dates">June 2007 – Aug 2009</div>
-            <div class="job-desc">
-              Led a team of business analysts, facilitated requirements workshops, and delivered high-level solution designs for multiple Government agencies.
-            </div>
-          </div>
-          <div class="job">
-            <div class="job-title">Business Analyst Manager - Cards</div>
-            <div class="job-company">Westpac NZ</div>
-            <div class="job-dates">March 2006 – June 2007</div>
-            <div class="job-desc">
-              Ensured IT and solution delivery objectives were met, provided leadership and mentoring, and introduced a requirements framework.
-            </div>
-          </div>
-          <div class="job">
-            <div class="job-title">Principal Consultant</div>
-            <div class="job-company">Business Agility Ltd</div>
-            <div class="job-dates">March 2002 – Jan 2006</div>
-            <div class="job-desc">
-              Specialized in Implementation of E-business and CRM, improving client sales and retention strategies through process re-design and automation across the UK in many different business domains.
-            </div>
-          </div>
-          <div class="job">
-            <div class="job-title">Business Analysis Manager</div>
-            <div class="job-company">Criterion Assurance Ltd</div>
-            <div class="job-dates">Feb 1998 – March 2002</div>
-            <div class="job-desc">
-              Led a team of business analysts and developers, delivering strategic E-business, automation and transformational solutions, managing software development projects and providing strategic planning for an assurance business wanting to radically modernise.
-            </div>
-          </div>
+    </section>
+
+    <section class="section" id="skills">
+      <div class="section-header">
+        <h2 class="section-title">Skills & Expertise</h2>
+        <p class="section-subtitle">Core competencies and technical proficiencies</p>
+      </div>
+      <div class="skills-container">
+        <span class="skill-tag">Technology Strategy & Vision</span>
+        <span class="skill-tag">Digital Transformation</span>
+        <span class="skill-tag">Automation & AI</span>
+        <span class="skill-tag">IT Governance & Compliance</span>
+        <span class="skill-tag">Business & Solution Architecture</span>
+        <span class="skill-tag">IT Operations Management</span>
+        <span class="skill-tag">Software Delivery Management</span>
+        <span class="skill-tag">Python/Bash/PowerShell scripting</span>
+        <span class="skill-tag">Change Management</span>
+        <span class="skill-tag">Data-Driven Decision Making</span>
+        <span class="skill-tag">Agile & Lean Methodology Coaching</span>
+        <span class="skill-tag">Business Analysis</span>
+        <span class="skill-tag">MS 365 Administration</span>
+      </div>
+    </section>
+
+    <section class="section" id="tools">
+      <div class="section-header">
+        <h2 class="section-title">Tools & Technologies</h2>
+        <p class="section-subtitle">Platforms and frameworks I work with</p>
+      </div>
+      <div class="skills-container">
+        <span class="skill-tag">MS Visio</span>
+        <span class="skill-tag">MS Office</span>
+        <span class="skill-tag">MS Project</span>
+        <span class="skill-tag">PowerAutomate</span>
+        <span class="skill-tag">PowerBI</span>
+        <span class="skill-tag">ChatGPT</span>
+        <span class="skill-tag">Claude</span>
+        <span class="skill-tag">Gemini</span>
+        <span class="skill-tag">MS Teams</span>
+        <span class="skill-tag">SharePoint</span>
+        <span class="skill-tag">Aha!</span>
+        <span class="skill-tag">Jira</span>
+        <span class="skill-tag">Notion</span>
+        <span class="skill-tag">Confluence</span>
+        <span class="skill-tag">Proto.io</span>
+        <span class="skill-tag">Miro</span>
+        <span class="skill-tag">Azure DevOps</span>
+        <span class="skill-tag">iServer</span>
+        <span class="skill-tag">Sparx EA</span>
+        <span class="skill-tag">Azure and AWS Cloud</span>
+        <span class="skill-tag">Bizagi</span>
+        <span class="skill-tag">Github</span>
+        <span class="skill-tag">ArchiMate</span>
+        <span class="skill-tag">UML</span>
+        <span class="skill-tag">BPMN</span>
+        <span class="skill-tag">TOGAF</span>
+        <span class="skill-tag">PMI</span>
+        <span class="skill-tag">Prince 2</span>
+        <span class="skill-tag">RUP</span>
+        <span class="skill-tag">Copilot Studio</span>
+        <span class="skill-tag">MS 365 Admin</span>
+        <span class="skill-tag">n8n</span>
+        <span class="skill-tag">VS Code</span>
+      </div>
+    </section>
+
+    <section class="section" id="additional">
+      <div class="grid grid-2">
+        <div class="info-card">
+          <h3 class="info-title">Education</h3>
+          <ul class="info-list">
+            <li><strong>BTEC - Business & Finance</strong><br>West Kent College, 1991 - 1992</li>
+            <li><strong>Secondary School</strong><br>Tunbridge Wells Grammar School for Boys, 1985 - 1991</li>
+          </ul>
+        </div>
+
+        <div class="info-card">
+          <h3 class="info-title">Certifications</h3>
+          <ul class="info-list">
+            <li>ICAgile Fundamentals of Agile - IC Agile</li>
+            <li>Applied Enterprise Analysis – Equinox IT</li>
+            <li>Certified Product Owner - Scrum Alliance</li>
+            <li>Certified Scrum Master - Scrum Alliance</li>
+            <li>Mastering the Requirements Process - Atlantic Systems Guild</li>
+            <li>Web Application Design for the Disabled – The Usability Company</li>
+            <li>Object Oriented Analysis and Systems Design - Merit International</li>
+            <li>Business Systems Analysis - Assist Knowledge Development</li>
+          </ul>
+        </div>
+
+        <div class="info-card">
+          <h3 class="info-title">Hobbies & Interests</h3>
+          <ul class="info-list">
+            <li>Writing music and performing with my band</li>
+            <li>Bushwalking with family & exploring new places</li>
+            <li>Keeping up to date with emerging technologies</li>
+          </ul>
+        </div>
+
+        <div class="info-card">
+          <h3 class="info-title">Video Presentations</h3>
+          <a href="#" class="video-link">Understanding Agile Teams Using Data and Systems Thinking</a>
+          <a href="#" class="video-link">Increasing Analytical Thinking in Agile Teams</a>
+          <a href="#" class="video-link">From Waterfall to Kanban to Scrum</a>
+          <a href="#" class="video-link">Lessons from 2022</a>
         </div>
       </div>
-    </div>
-    <div class="sidebar">
-      <div class="card">
-        <div class="section-title">Skills</div>
-        <div class="skills-grid">
-          <span>Technology Strategy & Vision</span>
-          <span>Digital Transformation</span>
-          <span>Automation & AI</span>
-          <span>IT Governance & Compliance</span>
-          <span>Business & Solution Architecture</span>
-          <span>IT Operations Management</span>
-          <span>Software Delivery Management</span>
-          <span>Python/Bash/PowerShell scripting</span>
-          <span>Change Management</span>
-          <span>Data-Driven Decision Making</span>
-          <span>Agile & Lean Methodology Coaching</span>
-          <span>Business Analysis</span>
-          <span>MS 365 Administration</span>
-        </div>
-      </div>
-      <div class="card">
-        <div class="section-title">Tools</div>
-        <div class="tools-grid">
-          <span>MS Visio</span>
-          <span>MS Office</span>
-          <span>MS Project</span>
-          <span>PowerAutomate</span>
-          <span>PowerBI</span>
-          <span>ChatGPT</span>
-          <span>Claude</span>
-          <span>Gemini</span>
-          <span>MS Teams</span>
-          <span>SharePoint</span>
-          <span>Aha!</span>
-          <span>Jira</span>
-          <span>Notion</span>
-          <span>Confluence</span>
-          <span>Proto.io</span>
-          <span>Miro</span>
-          <span>Azure DevOps</span>
-          <span>iServer</span>
-          <span>Sparx EA</span>
-          <span>Azure and AWS Cloud</span>
-          <span>Bizagi</span>
-          <span>Github</span>
-          <span>ArchiMate</span>
-          <span>UML</span>
-          <span>BPMN</span>
-          <span>TOGAF</span>
-          <span>PMI</span>
-          <span>Prince 2</span>
-          <span>RUP</span>
-          <span>Copilot Studio</span>
-          <span>MS 365 Admin</span>
-          <span>n8n</span>
-          <span>VS Code</span>
-        </div>
-      </div>
-      <div class="card">
-        <div class="section-title">Education</div>
-        <ul class="edu-list">
-          <li><span class="edu-degree">BTEC - Business & Finance</span> <span class="edu-school">West Kent College, 1991 - 1992</span></li>
-          <li><span class="edu-degree">Secondary School</span> <span class="edu-school">Tunbridge Wells Grammar School for Boys, 1985 - 1991</span></li>
-        </ul>
-      </div>
-      <div class="card">
-        <div class="section-title">Certifications</div>
-        <ul class="cert-list">
-          <li>ICAgile Fundamentals of Agile - IC Agile</li>
-          <li>Applied Enterprise Analysis – Equinox IT</li>
-          <li>Certified Product Owner - Scrum Alliance</li>
-          <li>Certified Scrum Master - Scrum Alliance</li>
-          <li>Mastering the Requirements Process - Atlantic Systems Guild</li>
-          <li>Web Application Design for the Disabled – The Usability Company</li>
-          <li>Object Oriented Analysis and Systems Design - Merit International</li>
-          <li>Business Systems Analysis - Assist Knowledge Development</li>
-        </ul>
-      </div>
-      <div class="card">
-        <div class="section-title">Affiliations</div>
-        <ul class="affil-list">
-          <li>International Institute of Business Analysis - NZ Chapter</li>
-        </ul>
-      </div>
-      <div class="card">
-        <div class="section-title">Hobbies</div>
-        <ul class="hobby-list">
-          <li>Writing music and performing with my band</li>
-          <li>Bushwalking with family & exploring new places</li>
-          <li>Keeping up to date with emerging technologies</li>
-        </ul>
-      </div>
-      <div class="card">
-        <div class="section-title">Video Links</div>
-        <ul class="video-list">
-          <li><a href="#">Understanding Agile Teams Using Data and Systems Thinking</a></li>
-          <li><a href="#">Increasing Analytical Thinking in Agile Teams</a></li>
-          <li><a href="#">From Waterfall to Kanban to Scrum</a></li>
-          <li><a href="#">Lessons from 2022</a></li>
-        </ul>
-      </div>
-    </div>
+    </section>
+
+    <section class="cta-section">
+      <h2 class="cta-title">Let's Work Together</h2>
+      <p class="cta-text">Interested in collaborating or learning more about my work?</p>
+      <a href="mailto:nickfoard13@gmail.com" class="btn">Get In Touch</a>
+    </section>
   </div>
+
+  <footer>
+    <p>&copy; 2024 Nick Foard. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.section').forEach(section => {
+      observer.observe(section);
+    });
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
 </body>
 </html>
